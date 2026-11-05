@@ -20,7 +20,7 @@ static bool     failed; // Set by any file closing with errors.
 static Buffer   deps;   // Input dependencies, in the order recorded. T = char*
 static Buffer   kept;   // Managed allocations, freed after the context. T = void*
 
-static OpenFile open[MAX_OPEN] = { 0 }; // Loaded files that are still open.
+static OpenFile open_files[MAX_OPEN] = { 0 }; // Loaded files that are still open.
 
 dp_ctx* Driver_Context(void) {
     return ctx;
@@ -32,9 +32,9 @@ static inline void Kept_Add(void *keep) { Buffer_Push(&kept, void*, keep); }
 
 static inline void Open_Add(char *path, dp_file *file) {
     for (size_t i = 0; i < MAX_OPEN; i++) {
-        if (open[i].file == NULL) {
-            open[i].path = path;
-            open[i].file = file;
+        if (open_files[i].file == NULL) {
+            open_files[i].path = path;
+            open_files[i].file = file;
             return;
         }
     }
@@ -43,12 +43,12 @@ static inline void Open_Add(char *path, dp_file *file) {
 }
 
 static inline void Open_CloseAt(size_t i) {
-    if (open[i].file == NULL) return;
+    if (open_files[i].file == NULL) return;
 
-    if (dp_report(open[i].file) == DP_LEVEL_ERROR) failed = true;
-    dp_close(open[i].file);
-    free(open[i].path);
-    open[i] = (OpenFile){ 0 };
+    if (dp_report(open_files[i].file) == DP_LEVEL_ERROR) failed = true;
+    dp_close(open_files[i].file);
+    free(open_files[i].path);
+    open_files[i] = (OpenFile){ 0 };
 }
 
 void* Driver_Keep(void *p) { Kept_Add(p); return p; }
@@ -85,7 +85,7 @@ void Driver_Close(dp_file *file)
     if (file == NULL) return;
 
     for (size_t i = 0; i < MAX_OPEN; i++) {
-        if (open[i].file == file) {
+        if (open_files[i].file == file) {
             Open_CloseAt(i);
             return;
         }

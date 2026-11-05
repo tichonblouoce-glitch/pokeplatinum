@@ -24,7 +24,7 @@ linux | wine)
     ;;
 esac
 
-TMP="/tmp"
+TMP="$TMPDIR"
 
 SKREW="metroskrew"
 SKREW_GH="https://github.com/mid-kid/$SKREW"

@@ -71,6 +71,14 @@
         "If the PP of moves runs low, head for\n",
         "any Pokémon Center."
       ]
+    },
+    {
+      "id": "Route203_Text_DebugCoordinates",
+      "en_US": [
+        "Developer Mode\r",
+        "X: {STRVAR_1 0, 0, 0}\n",
+        "Z: {STRVAR_1 0, 1, 0}\r"
+      ]
     }
   ]
 }

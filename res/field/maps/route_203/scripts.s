@@ -12,7 +12,13 @@
     ScriptEntryEnd
 
 Route203_Lass:
-    NPCMessage Route203_Text_FavoritePokemonAtTheTop
+    LockAll
+    GetPlayerMapPos VAR_0x8004, VAR_0x8005
+    BufferNumber 0, VAR_0x8004
+    BufferNumber 1, VAR_0x8005
+    Message Route203_Text_DebugCoordinates
+    WaitABPress
+    ReleaseAll
     End
 
 Route203_ArrowSignpostJubilifeCity:
