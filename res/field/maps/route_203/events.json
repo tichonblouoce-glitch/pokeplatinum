@@ -262,6 +262,16 @@
             "length": 4,
             "var": "VAR_ROUTE_203_RIVAL_STATE",
             "value": 0
+        },
+        {
+            "script": 7,
+            "x": 227,
+            "z": 745,
+            "y": 0,
+            "width": 1,
+            "length": 2,
+            "var": "VAR_MAP_LOCAL_0x00",
+            "value": 0
         }
     ]
 }

@@ -9,6 +9,7 @@
     ScriptEntry Route203_TrainerTipsSignpostEast
     ScriptEntry Route203_TrainerTipsSignpostWest
     ScriptEntry Route203_CoordEvent_Rival
+    ScriptEntry Route203_CoordEvent_Stairs
     ScriptEntryEnd
 
 Route203_Lass:
@@ -20,6 +21,9 @@ Route203_Lass:
     WaitABPress
     ReleaseAll
     End
+
+Route203_CoordEvent_Stairs:
+    GoTo Route203_Lass
 
 Route203_ArrowSignpostJubilifeCity:
     ShowArrowSign Route203_Text_SignJubilifeCity
