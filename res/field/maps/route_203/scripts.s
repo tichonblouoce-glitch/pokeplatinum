@@ -3,6 +3,7 @@
 #include "res/field/maps/locals/route_203.h"
 
 
+    ScriptEntry Route203_OnTransition
     ScriptEntry Route203_Lass
     ScriptEntry Route203_ArrowSignpostJubilifeCity
     ScriptEntry Route203_ArrowSignpostOreburghCity
@@ -11,6 +12,12 @@
     ScriptEntry Route203_CoordEvent_Rival
     ScriptEntry Route203_CoordEvent_Stairs
     ScriptEntryEnd
+
+Route203_OnTransition:
+    SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SHROOMISH
+    ClearFlag FLAG_HIDE_ROUTE_203_SHROOMISH
+    AddObject LOCALID_SHROOMISH
+    End
 
 Route203_Lass:
     LockAll
