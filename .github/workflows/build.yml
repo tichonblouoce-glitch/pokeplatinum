@@ -38,6 +38,7 @@ jobs:
         run: make check
 
       - name: Upload ROM
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: pokeplatinum-test-rom
