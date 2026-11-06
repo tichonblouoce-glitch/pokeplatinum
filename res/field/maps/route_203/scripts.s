@@ -30,7 +30,7 @@ Route203_Lass:
     End
 
 Route203_CoordEvent_Stairs:
-    GoTo Route203_Lass
+    End
 
 Route203_ArrowSignpostJubilifeCity:
     ShowArrowSign Route203_Text_SignJubilifeCity
