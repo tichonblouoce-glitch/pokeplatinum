@@ -14,6 +14,7 @@
     ScriptEntryEnd
 
 Route203_OnTransition:
+    SetFlag FLAG_HIDE_ROUTE_203_SHROOMISH
     SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SHROOMISH
     End
 
