@@ -15,8 +15,6 @@
 
 Route203_OnTransition:
     SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SHROOMISH
-    ClearFlag FLAG_HIDE_ROUTE_203_SHROOMISH
-    AddObject LOCALID_SHROOMISH
     End
 
 Route203_Lass:
@@ -30,6 +28,10 @@ Route203_Lass:
     End
 
 Route203_CoordEvent_Stairs:
+    ClearFlag FLAG_HIDE_ROUTE_203_SHROOMISH
+    AddObject LOCALID_SHROOMISH
+    ApplyMovement LOCALID_SHROOMISH, Route203_Movement_ShroomishTest
+    WaitMovement
     End
 
 Route203_ArrowSignpostJubilifeCity:
@@ -197,4 +199,10 @@ Route203_Movement_RivalNoticePlayer:
     Delay8
     EmoteExclamationMark
     Delay8
+    EndMovement
+
+    .balign 4, 0
+Route203_Movement_ShroomishTest:
+    WalkNormalSouth
+    WalkNormalEast
     EndMovement
